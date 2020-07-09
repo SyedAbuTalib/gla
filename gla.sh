@@ -1,9 +1,12 @@
 #!/bin/bash
-echo "gla works"
+echo "gla'd these directories"
 
 dip=`pwd`
 
 for d in $dip/*/
 do
-  (cd "$d" && echo "$d")
+  dd=$(basename $d)
+  cd "$d" && echo "$dd"
+  git checkout master &> /dev/null
+  git pull
 done
